@@ -1,0 +1,118 @@
+.select {
+  position: relative;
+  width: 100%;
+}
+
+.control {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  transition: border-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
+}
+
+.control:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgb(40 99 77 / 18%);
+}
+
+.control.invalid {
+  border-color: var(--color-danger);
+}
+
+.input {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: inherit;
+  outline: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font-size: 15px;
+}
+
+.input::placeholder {
+  color: #707a73;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  background: var(--color-muted);
+  color: var(--color-muted-ink);
+}
+
+.chevron {
+  padding: 0 14px;
+  color: var(--color-muted-ink);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.clear {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  place-items: center;
+  margin-right: 5px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-muted-ink);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.clear:hover {
+  background: var(--color-muted);
+  color: var(--color-ink);
+}
+
+.options {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 6px);
+  right: 0;
+  left: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-raised);
+  list-style: none;
+}
+
+.option,
+.noResults {
+  min-height: 42px;
+  padding: 10px 11px;
+  border-radius: 6px;
+  color: var(--color-ink);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.option {
+  cursor: pointer;
+}
+
+.option:hover,
+.option.active {
+  background: var(--color-muted);
+}
+
+.option[aria-selected="true"] {
+  color: var(--color-primary);
+  font-weight: 650;
+}
+
+.noResults {
+  color: var(--color-muted-ink);
+}
