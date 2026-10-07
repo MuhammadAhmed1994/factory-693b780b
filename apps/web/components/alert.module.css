@@ -1,0 +1,77 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid;
+  border-radius: var(--radius-control, 10px);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.error {
+  border-color: #e3b9b5;
+  background: #fff6f4;
+  color: #842525;
+}
+
+.success {
+  border-color: #a9c8b8;
+  background: #f1f8f3;
+  color: #204f3e;
+}
+
+.info {
+  border-color: #b5cbd7;
+  background: #f1f7fa;
+  color: #214b62;
+}
+
+.icon {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  place-items: center;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.content {
+  min-width: 0;
+  flex: 1;
+}
+
+.title {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+
+.dismiss {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  place-items: center;
+  margin: -3px -5px 0 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.dismiss:hover {
+  background: rgb(32 41 37 / 8%);
+}
+
+.dismiss:focus-visible {
+  outline: 3px solid var(--color-focus, #28634d);
+  outline-offset: 2px;
+}
