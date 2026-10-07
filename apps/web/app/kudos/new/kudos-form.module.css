@@ -1,0 +1,80 @@
+.column {
+  width: min(100%, 640px);
+  margin: 0 auto;
+  padding: 52px 0 88px;
+}
+
+.heading { margin-bottom: 28px; }
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--color-muted-ink);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.heading h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 650;
+  letter-spacing: -.03em;
+  line-height: 36px;
+}
+.description { margin: 8px 0 0; color: var(--color-muted-ink); line-height: 24px; }
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-subtle);
+}
+.field { display: flex; flex-direction: column; gap: 8px; }
+.label { font-size: 14px; font-weight: 600; line-height: 20px; }
+.textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  padding: 13px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  line-height: 24px;
+}
+.textarea::placeholder { color: var(--color-muted-ink); }
+.textarea:focus { border-color: var(--color-primary); outline: 3px solid rgb(40 99 77 / 16%); }
+.textarea.invalid { border-color: var(--color-danger); }
+.textarea:disabled { background: var(--color-muted); }
+.messageMeta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.helper, .counter { margin: 0; color: var(--color-muted-ink); font-size: 12px; line-height: 18px; }
+.counter { flex: 0 0 auto; font-variant-numeric: tabular-nums; }
+.fieldError { margin: 0; color: var(--color-danger); font-size: 13px; line-height: 19px; }
+.actions { display: flex; align-items: center; gap: 12px; padding-top: 2px; }
+.directoryError, .emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+}
+.directoryError { color: var(--color-danger); }
+.emptyState { align-items: flex-start; flex-direction: column; }
+.emptyState span { color: var(--color-muted-ink); font-size: 14px; }
+
+@media (max-width: 767px) {
+  .column { padding: 34px 0 64px; }
+  .form { padding: 22px 18px; gap: 21px; }
+}
+
+@media (max-width: 420px) {
+  .actions { align-items: stretch; flex-direction: column; }
+  .actions button { width: 100%; }
+}
