@@ -1,0 +1,152 @@
+.card {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  color: var(--color-surface-ink);
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow var(--motion-base) var(--ease-enter), border-color var(--motion-base) var(--ease-enter);
+}
+
+.card:hover {
+  border-color: #c5cec5;
+  box-shadow: 0 4px 14px rgb(32 41 37 / 7%);
+}
+
+.accent {
+  display: grid;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-ink);
+  font-size: 19px;
+}
+
+.content {
+  min-width: 0;
+  flex: 1;
+}
+
+.recipient {
+  margin: 0 0 8px;
+  color: var(--color-muted-ink);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.recipient strong {
+  color: var(--color-ink);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.message {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+}
+
+.metadata {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--color-muted-ink);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.separator {
+  color: var(--color-border);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.moderation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hideButton {
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-danger);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color var(--motion-fast) ease;
+}
+
+.hideButton:hover:not(:disabled) {
+  background: #fff5f4;
+}
+
+.hideButton:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.hideError {
+  max-width: 220px;
+  margin: 0;
+  color: var(--color-danger);
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .moderation {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .hideButton {
+    transition: none;
+  }
+}
