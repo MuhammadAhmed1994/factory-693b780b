@@ -1,0 +1,128 @@
+.picker {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.trigger {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  transition: border-color var(--motion-fast) ease, background-color var(--motion-fast) ease;
+}
+
+.trigger:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-muted);
+}
+
+.trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.selected {
+  border-color: var(--color-primary);
+  background: #edf4ef;
+  color: var(--color-primary-hover);
+  font-weight: 600;
+}
+
+.triggerLabel {
+  font-weight: 600;
+}
+
+.choices {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: calc(100% + 8px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-raised);
+}
+
+.emojiButton {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 21px;
+  transition: background-color var(--motion-fast) ease, transform var(--motion-fast) ease;
+}
+
+.emojiButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--color-muted);
+}
+
+.emojiButton:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.submitting {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  color: var(--color-muted-ink);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.error {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--color-danger);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 375px) {
+  .choices {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trigger,
+  .emojiButton {
+    transition: none;
+  }
+
+  .emojiButton:hover:not(:disabled) {
+    transform: none;
+  }
+}
