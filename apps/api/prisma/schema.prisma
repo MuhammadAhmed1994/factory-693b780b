@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  MEMBER
+  LEAD
+}
+
+model User {
+  id            String     @id @default(cuid())
+  email         String     @unique
+  passwordHash  String
+  role          UserRole   @default(MEMBER)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  sessions      Session[]
+  authoredKudos Kudos[]    @relation("KudosAuthor")
+  receivedKudos Kudos[]   @relation("KudosRecipient")
+  hiddenKudos   Kudos[]    @relation("KudosHider")
+  reactions     Reaction[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Kudos {
+  id          String     @id @default(cuid())
+  authorId    String
+  recipientId String
+  message     String     @db.VarChar(280)
+  isHidden    Boolean    @default(false)
+  hiddenAt    DateTime?
+  hiddenById  String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  author      User       @relation("KudosAuthor", fields: [authorId], references: [id], onDelete: Restrict)
+  recipient   User       @relation("KudosRecipient", fields: [recipientId], references: [id], onDelete: Restrict)
+  hiddenBy    User?      @relation("KudosHider", fields: [hiddenById], references: [id], onDelete: SetNull)
+  reactions   Reaction[]
+
+  @@index([authorId])
+  @@index([recipientId])
+  @@index([hiddenById])
+  @@index([createdAt])
+}
+
+model Reaction {
+  id        String   @id @default(cuid())
+  userId    String
+  kudosId   String
+  emoji     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kudos     Kudos    @relation(fields: [kudosId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, kudosId])
+  @@index([kudosId])
+}
