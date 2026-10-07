@@ -1,0 +1,147 @@
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 43%, rgb(242 198 109 / 10%), transparent 34%),
+    var(--color-paper);
+}
+
+.main {
+  display: grid;
+  min-height: calc(100vh - 72px);
+  place-items: center;
+  padding: 48px 24px;
+}
+
+.card {
+  width: min(100%, 448px);
+  padding: 36px 40px 32px;
+  border: 1px solid rgb(217 222 216 / 90%);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: 0 18px 48px rgb(32 41 37 / 7.5%), var(--shadow-subtle);
+}
+
+.card h1 {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 28px;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 36px;
+}
+
+.intro {
+  margin: 7px 0 25px;
+  color: var(--color-muted-ink);
+  font-size: 15px;
+  line-height: 23px;
+}
+
+.form {
+  margin: 0;
+}
+
+.fields {
+  display: grid;
+  gap: 19px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field label {
+  color: #343d38;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 20px;
+}
+
+.inputWrap {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  fill: none;
+  stroke: #758078;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  pointer-events: none;
+}
+
+.field input {
+  width: 100%;
+  height: 50px;
+  padding: 0 14px 0 43px;
+  border: 1px solid #cfd6d0;
+  border-radius: var(--radius-control);
+  outline: none;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 15px;
+  line-height: 22px;
+  transition: border-color var(--motion-base) ease, box-shadow var(--motion-base) ease;
+}
+
+.field input:focus-visible {
+  border-color: var(--color-focus);
+  box-shadow: 0 0 0 3px rgb(40 99 77 / 14%);
+}
+
+.field input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.alert {
+  margin-top: 16px;
+}
+
+.submitButton {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 19px;
+  font-size: 15px;
+}
+
+.footnote {
+  margin: 20px 0 0;
+  color: var(--color-muted-ink);
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@media (max-width: 520px) {
+  .main {
+    min-height: calc(100vh - 64px);
+    padding: 32px 18px;
+  }
+
+  .card {
+    padding: 29px 24px 26px;
+  }
+
+  .intro {
+    margin-bottom: 23px;
+  }
+}
+
+@media (max-width: 360px) {
+  .main {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .card {
+    padding-right: 19px;
+    padding-left: 19px;
+  }
+}
