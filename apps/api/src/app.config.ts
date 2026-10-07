@@ -47,6 +47,9 @@ export const config = {
   get port(): number {
     return Number(fromEnv('PORT') ?? 3001);
   },
+  get databaseUrl(): string {
+    return process.env.DATABASE_URL ?? '';
+  },
   get jwtSecret(): string {
     return secret('JWT_SECRET');
   },
