@@ -1,0 +1,89 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  transition: border-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
+}
+
+.control:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgb(40 99 77 / 14%);
+}
+
+.invalid { border-color: var(--color-danger); }
+
+.input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font-size: 15px;
+}
+
+.input::placeholder { color: var(--color-muted-ink); }
+.input:disabled { color: var(--color-muted-ink); cursor: not-allowed; }
+
+.chevron { color: var(--color-muted-ink); font-size: 20px; }
+
+.clear {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-muted-ink);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.options {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  max-height: 240px;
+  overflow: auto;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-raised);
+  list-style: none;
+}
+
+.option, .activeOption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+.activeOption { background: var(--color-muted); }
+.email { color: var(--color-muted-ink); font-size: 13px; }
+.noOptions, .hint { padding: 8px 10px; color: var(--color-muted-ink); font-size: 14px; }
+.hint { margin: 0; padding: 0; }
+.error { margin: 0; color: var(--color-danger); font-size: 13px; }
