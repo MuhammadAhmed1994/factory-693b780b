@@ -1,0 +1,102 @@
+.feedHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 1px 13px;
+}
+
+.feedHeading h2 { margin: 0; font-size: 16px; font-weight: 650; }
+.sortNote { color: var(--color-muted-ink); font-size: 13px; }
+.list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+
+.card {
+  padding: 20px 22px 17px;
+  border: 1px solid #e3e5df;
+  border-radius: 13px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-subtle);
+}
+.cardTop { display: flex; align-items: flex-start; gap: 12px; }
+.avatar {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e5eee8;
+  color: #315e48;
+  font-size: 12px;
+  font-weight: 650;
+}
+.copy { min-width: 0; flex: 1; }
+.recipient { margin: 0; font-weight: 650; }
+.byline { margin: 2px 0 0; color: var(--color-muted-ink); font-size: 12px; }
+.message { margin: 15px 0 17px 50px; color: #29332d; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
+.cardFooter { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-left: 50px; padding-top: 12px; border-top: 1px solid #f0f1ed; }
+.meta { display: flex; flex-wrap: wrap; gap: 5px; color: var(--color-muted-ink); font-size: 12px; }
+.reactions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.reactionChip, .reactionTrigger {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+  border: 1px solid #e1e6df;
+  border-radius: var(--radius-pill);
+  background: #fafbf9;
+  color: var(--color-ink);
+  cursor: pointer;
+  font-size: 13px;
+}
+.reactionChip[aria-pressed="true"] { border-color: var(--color-primary); background: #edf4ef; }
+.reactionTrigger { min-width: 38px; background: transparent; }
+.reactionChoices { display: flex; flex-wrap: wrap; gap: 4px; padding: 7px; border: 1px solid var(--color-border); border-radius: var(--radius-control); background: white; box-shadow: var(--shadow-raised); }
+.emojiButton { width: 38px; height: 38px; border: 0; border-radius: 8px; background: transparent; cursor: pointer; font-size: 21px; }
+.emojiButton:hover { background: var(--color-muted); }
+.pending { color: var(--color-muted-ink); font-size: 12px; }
+.moderation { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--color-border); }
+.moderationLabel { color: var(--color-muted-ink); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.hideButton { min-height: 36px; padding: 0 12px; border: 1px solid #dfb6b6; border-radius: 8px; background: white; color: var(--color-danger); cursor: pointer; font-size: 13px; font-weight: 600; }
+.hideButton:hover:not(:disabled) { background: #fff5f5; }
+.hideButton:disabled { opacity: .65; cursor: wait; }
+.status { margin: 14px 0 0; color: var(--color-success); font-size: 13px; }
+.error { margin: 12px 0; padding: 12px 14px; border: 1px solid #e6bcbc; border-radius: var(--radius-control); background: #fff6f5; color: #812626; font-size: 14px; }
+.statePanel { padding: 28px 22px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: white; text-align: center; }
+.statePanel h3 { margin: 0 0 6px; font-size: 17px; }
+.statePanel p { margin: 0; color: var(--color-muted-ink); }
+.retry { min-height: 40px; margin-top: 14px; padding: 0 14px; border: 1px solid var(--color-primary); border-radius: 8px; background: var(--color-primary); color: white; cursor: pointer; font-weight: 600; }
+.pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 22px; }
+.pageNote { color: var(--color-muted-ink); font-size: 12px; }
+.pageControls { display: flex; align-items: center; gap: 8px; }
+.pageButton { min-height: 38px; padding: 0 12px; border: 1px solid var(--color-border); border-radius: 8px; background: white; color: var(--color-ink); cursor: pointer; font-size: 13px; }
+.pageButton:disabled { background: var(--color-muted); color: #747d76; cursor: not-allowed; }
+.pageNumber { min-width: 35px; padding: 8px; border-radius: 8px; background: #edf4ef; color: var(--color-primary-hover); text-align: center; font-weight: 650; }
+.skeleton { min-height: 154px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: linear-gradient(90deg, #f0f1ed 25%, #f8f8f6 50%, #f0f1ed 75%); background-size: 200% 100%; animation: shimmer 1.3s ease-in-out infinite; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.dialogBackdrop { position: fixed; z-index: 10; inset: 0; display: grid; place-items: center; padding: 20px; background: rgb(23 31 27 / 48%); }
+.dialog { width: min(440px, 100%); padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: white; box-shadow: var(--shadow-raised); }
+.dialog h2 { margin: 0 0 9px; font-size: 21px; }
+.dialog p { margin: 0; color: var(--color-muted-ink); }
+.dialogActions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+.cancelButton, .confirmButton { min-height: 42px; padding: 0 14px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.cancelButton { border: 1px solid var(--color-border); background: white; }
+.confirmButton { border: 1px solid var(--color-danger); background: var(--color-danger); color: white; }
+.confirmButton:disabled, .cancelButton:disabled { cursor: wait; opacity: .7; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); border: 0; }
+
+@media (max-width: 600px) {
+  .feedHeading { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .card { padding: 17px 15px 14px; }
+  .message, .cardFooter { margin-left: 0; }
+  .cardFooter { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .moderation { align-items: flex-start; }
+  .pagination { align-items: flex-start; flex-direction: column; }
+  .pageControls { width: 100%; justify-content: space-between; }
+  .dialogActions { flex-direction: column-reverse; }
+  .dialogActions button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
