@@ -1,0 +1,62 @@
+.feedSection { min-width: 0; }
+.feedHeading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 13px; }
+.feedHeading h2 { margin: 0; font-size: 16px; font-weight: 650; letter-spacing: -.015em; }
+.sortNote { color: #707a73; font-size: 12px; }
+.leadNote { margin: 0 0 12px; color: var(--color-muted-ink); font-size: 12px; }
+.list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.card { padding: 21px 23px 17px; border: 1px solid #e3e5df; border-radius: 13px; background: var(--color-surface); box-shadow: var(--shadow-subtle); transition: border-color var(--motion-base) ease, box-shadow var(--motion-base) ease; }
+.card:hover { border-color: #d4dcd4; box-shadow: 0 4px 14px rgb(32 41 37 / 6%); }
+.recipientLine { display: flex; align-items: center; gap: 11px; }
+.avatar { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border-radius: 50%; background: #e5eee8; color: #315e48; font-size: 13px; font-weight: 650; }
+.recipientLabel { color: #778078; font-size: 10px; font-weight: 650; letter-spacing: .095em; text-transform: uppercase; }
+.recipientLine h3 { margin: 1px 0 0; font-size: 15px; font-weight: 650; line-height: 19px; }
+.message { margin: 15px 0 18px 49px; color: #29332d; font-size: 15px; line-height: 23px; overflow-wrap: anywhere; white-space: pre-wrap; }
+.cardFooter { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-left: 49px; padding-top: 12px; border-top: 1px solid #f0f1ed; }
+.byline { margin: 0; color: #69736c; font-size: 12px; line-height: 18px; }
+.byline strong { color: #46524b; font-weight: 600; }
+.reactions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.reactionChip { display: inline-flex; min-height: 30px; align-items: center; gap: 5px; padding: 0 9px; border: 1px solid #e6e9e3; border-radius: var(--radius-pill); background: #fafbf9; color: #445048; font-size: 12px; }
+.picker { position: relative; }
+.reactButton { min-height: 32px; padding: 0 10px; border: 1px solid var(--color-border); border-radius: var(--radius-pill); background: #fff; color: var(--color-ink); cursor: pointer; font-size: 12px; font-weight: 550; }
+.reactButton:hover:not(:disabled) { border-color: var(--color-primary); background: var(--color-muted); }
+.reactButton:disabled { cursor: not-allowed; opacity: .75; }
+.emojiChoices { position: absolute; z-index: 2; right: 0; bottom: calc(100% + 8px); display: flex; gap: 4px; padding: 7px; border: 1px solid var(--color-border); border-radius: var(--radius-control); background: var(--color-surface); box-shadow: var(--shadow-raised); }
+.emojiChoices[hidden] { display: none; }
+.emojiChoices button { display: grid; width: 38px; height: 38px; place-items: center; border: 0; border-radius: 8px; background: transparent; cursor: pointer; font-size: 21px; }
+.emojiChoices button:hover:not(:disabled) { background: var(--color-muted); }
+.inlineError { flex-basis: 100%; margin: 2px 0 0; color: var(--color-danger); font-size: 12px; }
+.moderation { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; padding-top: 11px; border-top: 1px solid #f4eeee; color: var(--color-muted-ink); font-size: 11px; }
+.moderation button { min-height: 34px; padding: 5px 10px; border: 1px solid #d8aaa5; border-radius: 7px; background: #fff; color: #8c2929; cursor: pointer; font-size: 12px; font-weight: 600; }
+.moderation button:hover { background: #fff5f4; }
+.skeleton { min-height: 156px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: linear-gradient(90deg, #fff 25%, #f1f2ee 42%, #fff 64%); background-size: 300% 100%; animation: shimmer 1.4s ease infinite; }
+@keyframes shimmer { to { background-position-x: -300%; } }
+.loadError, .empty { padding: 28px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); text-align: center; }
+.loadError p, .empty p { margin: 0 0 12px; }
+.loadError { color: var(--color-danger); }
+.loadError button, .empty a { display: inline-flex; min-height: 40px; align-items: center; padding: 0 14px; border: 1px solid var(--color-primary); border-radius: var(--radius-control); background: var(--color-primary); color: #fff; cursor: pointer; font-size: 14px; font-weight: 600; text-decoration: none; }
+.empty > span { color: #a77c2c; font-size: 26px; }
+.dialogBackdrop { position: fixed; z-index: 20; inset: 0; display: grid; place-items: center; padding: 20px; background: rgb(32 41 37 / 48%); }
+.dialog { width: min(100%, 460px); padding: 27px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-raised); }
+.dialogEyebrow { margin: 0 0 6px; color: var(--color-danger); font-size: 12px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+.dialog h2 { margin: 0 0 9px; font-size: 22px; line-height: 29px; }
+.dialog > p:not(.dialogEyebrow) { color: var(--color-muted-ink); font-size: 14px; line-height: 21px; }
+.hideError { padding: 10px 12px; border-left: 3px solid var(--color-danger); background: #fff4f2; color: #782626 !important; }
+.dialogActions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; }
+.dialogActions button { min-height: 42px; padding: 0 14px; border-radius: var(--radius-control); cursor: pointer; font-size: 14px; font-weight: 600; }
+.cancelButton { border: 1px solid var(--color-border); background: #fff; color: var(--color-ink); }
+.confirmButton { border: 1px solid var(--color-danger); background: var(--color-danger); color: #fff; }
+.dialogActions button:disabled { cursor: wait; opacity: .7; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+
+@media (max-width: 767px) {
+  .feedHeading { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .card { padding: 18px 16px 15px; }
+  .message { margin: 14px 0 16px; }
+  .cardFooter { align-items: flex-start; flex-direction: column; gap: 10px; margin-left: 0; padding-top: 11px; }
+  .moderation { justify-content: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+  .card { transition: none; }
+}
